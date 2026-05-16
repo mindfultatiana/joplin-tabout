@@ -99,7 +99,7 @@ npm install
 npm run dist
 ```
 
-See [ReproducibilityNotes.md](../../blob/main/ReproducibilityNotes.md) for full environment details.
+See [ReproducibilityNotes](../../blob/main/ReproducibilityNotes.md) for full environment details.
 
 ---
 
