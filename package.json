@@ -1,0 +1,33 @@
+{
+  "name": "joplin-plugin-tabout",
+  "version": "1.0.0",
+  "description": "Press Tab to jump past closing brackets, quotes, and parentheses in the Joplin markdown editor.",
+  "license": "MIT",
+  "keywords": [
+    "joplin-plugin"
+  ],
+  "files": [
+    "publish"
+  ],
+  "homepage": "https://github.com/mindfultatiana/joplin-tabout#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mindfultatiana/joplin-tabout.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mindfultatiana/joplin-tabout/issues"
+  },
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "dist": "npm run build && node scripts/dist.js",
+    "prepare": "npm run dist"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.41",
+    "copy-webpack-plugin": "^9.0.1",
+    "ts-loader": "^9.2.3",
+    "typescript": "^4.2.4",
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.0"
+  }
+}
