@@ -66,17 +66,26 @@ When Tab is pressed before a closing character, the cursor moves past it. Otherw
 ```bash
 joplin-tabout/
 ├── manifest.json          # Plugin metadata (id, version, app_min_version)
-├── package.json           # Build dependencies
+├── package.json           # npm package metadata + build dependencies
+├── package-lock.json      # Locked dependency tree (committed)
 ├── tsconfig.json          # TypeScript config
 ├── webpack.config.js      # Bundle config — aliases api/ stub, no libraryTarget
+├── .gitignore             # Ignores node_modules/ and dist/ — NOT publish/
 ├── api/
 │   ├── index.js           # Runtime stub: exports global `joplin` object
 │   └── index.d.ts         # TypeScript type declarations
 ├── scripts/
-│   └── dist.js            # Packages dist/ into a .jpl TAR archive
-└── src/
-    ├── index.ts           # Plugin entry — registers the content script
-    └── contentScript.js   # Tab interception logic (CM5 shim + CM6 internals)
+│   └── dist.js            # Validates manifest, packages dist/ into publish/
+├── src/
+│   ├── index.ts           # Plugin entry — registers the content script
+│   └── contentScript.js   # Tab interception logic (CM5 shim + CM6 internals)
+├── dist/                  # Build output — generated, gitignored
+│   ├── index.js           # Bundled plugin entry
+│   ├── contentScript.js   # Copied verbatim by CopyPlugin
+│   └── manifest.json      # Copied verbatim by CopyPlugin
+└── publish/               # Release artifacts — generated, committed
+    ├── joplin.plugin.tabout.jpl   # TAR of dist/ — the installable plugin
+    └── joplin.plugin.tabout.json  # Manifest copy — read by the Joplin repo
 ```
 
 ---
