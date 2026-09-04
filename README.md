@@ -87,6 +87,11 @@ joplin-tabout/
     ├── joplin.plugin.tabout.jpl   # TAR of dist/ — the installable plugin
     └── joplin.plugin.tabout.json  # Manifest copy — read by the Joplin repo
 ```
+`dist/` and `publish/` are both produced by `npm run dist`, but they are
+treated differently: `dist/` is a disposable intermediate, while `publish/`
+holds the release artifacts. Both files in `publish/` must be present in the
+published npm package for the plugin to be picked up by the official
+[Joplin plugin repository](https://github.com/joplin/plugins).
 
 ---
 
